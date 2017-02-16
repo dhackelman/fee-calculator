@@ -1,7 +1,7 @@
 
 // TODO: DEFINE ANY VARIABLES HERE
 
-
+let innerTextArray = [];
 
 /**
  * 		EDIT ME!
@@ -13,9 +13,104 @@
  */
 function handleButtonClick(buttonValue) {
 
+
     // TODO: YOUR CODE GOES IN HERE!
 
-}
+    function evaluateAdd(arg) {
+      let a = arg[0];
+      let b = arg[1];
+      let sum = a + b;
+      clearDisplay();
+      updateDisplay(sum);
+      console.log(sum);
+    }
+    function evaluateSub(arg) {
+      let a = arg[0];
+      let b = arg[1];
+      let diff = a - b;
+      clearDisplay();
+      updateDisplay(diff);
+      console.log(diff);
+    }
+    function evaluateDiv(arg) {
+      let a = arg[0];
+      let b = arg[1];
+      let quot = a / b;
+      clearDisplay();
+      updateDisplay(quot);
+      console.log(quot);
+    }
+    function evaluateMult(arg) {
+      let a = arg[0];
+      let b = arg[1];
+      let prod = a * b;
+      clearDisplay();
+      updateDisplay(prod);
+      console.log(prod);
+    }
+
+    function doTheMath(){
+      if (innerTextArray.indexOf("-") > 0) {
+        let ans = innerTextArray.join('');
+        console.log("this  is a joined array" + ans);
+        let newArray = ans.split("-");
+        console.log(newArray);
+        let thirdArray = [];
+        for (let i=0; i<newArray.length; i++) {
+          thirdArray.push(Number(newArray[i]));
+        }
+        console.log(thirdArray);
+        evaluateSub(thirdArray);
+      }  else if (innerTextArray.indexOf("+") > 0) {
+          let ans = innerTextArray.join('');
+          console.log("this is a joined array" + ans);
+          let newArray = ans.split("+");
+          console.log(newArray);
+          let thirdArray = [];
+          for (let i=0; i<newArray.length; i++) {
+            thirdArray.push(Number(newArray[i]));
+          }
+          console.log(thirdArray);
+          evaluateAdd(thirdArray);
+      } else if (innerTextArray.indexOf("/") > 0) {
+          let ans = innerTextArray.join('');
+          console.log("this is a joined array" + ans);
+          let newArray = ans.split("/");
+          console.log(newArray);
+          let thirdArray = [];
+          for (let i=0; i<newArray.length; i++) {
+            thirdArray.push(Number(newArray[i]));
+          }
+          console.log(thirdArray);
+          evaluateDiv(thirdArray);
+      } else if (innerTextArray.indexOf("*") > 0) {
+          let ans = innerTextArray.join('');
+          console.log("this is a joined array" + ans);
+          let newArray = ans.split("*");
+          console.log(newArray);
+          let thirdArray = [];
+          for (let i=0; i<newArray.length; i++) {
+            thirdArray.push(Number(newArray[i]));
+          }
+          console.log(thirdArray);
+          evaluateMult(thirdArray);
+        }
+    }
+
+    if (buttonValue === 'c'){
+      innerTextArray.length=0;
+      clearDisplay();
+    } else if (buttonValue === "=") {
+      doTheMath();
+    } else {
+      innerTextArray.push(buttonValue);
+      updateDisplay(buttonValue);
+      console.log(innerTextArray);
+    }
+
+
+  }
+
 
 
 
